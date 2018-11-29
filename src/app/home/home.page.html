@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Login
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="loginForm">
+        <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <ion-button shape="round" color="primary" expand="block" [disabled]="!loginForm.valid"
+                    (click)="intentLogin()">
+            Iniciar sesión
+        </ion-button>
+        <ion-button expand="block" color="secondary" href="/newUser" routerDirection="forward">
+            Crear cuenta
+        </ion-button>
+    </form>
+</ion-content>

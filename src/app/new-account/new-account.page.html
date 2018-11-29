@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/accounts"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Crear nueva cuenta</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="newAccountForm">
+        <ion-item>
+            <ion-label>Seleccione una tarjeta</ion-label>
+            <ion-select formControlName="card">
+                <ion-select-option *ngFor="let c of cards" [value]="c">{{c.type}}: {{c.name}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-button shape="round" color="primary" expand="block" [disabled]="!newAccountForm.valid" (click)="createAccount()">
+            Crear cuenta
+        </ion-button>
+    </form>
+</ion-content>
